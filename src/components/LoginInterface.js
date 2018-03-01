@@ -21,8 +21,10 @@ const styles = {
   backgroundImage: {
     flex: 1,
     width: null,
-    height: null
-    // resizeMode: 'contain'
+    height: null,
+    paddingLeft: 60,
+    paddingRight: 60,
+    paddingVertical: 90
   }
 };
 

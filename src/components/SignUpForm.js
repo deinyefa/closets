@@ -1,17 +1,37 @@
 import React, { Component } from 'react';
-import { View, Text, TextInput } from 'react-native';
+import { Alert, View, Text, TextInput, TouchableOpacity } from 'react-native';
+
+import { Button, Input } from './common';
 
 class SignUpForm extends Component {
   // const { formContainerStyles, registerStyles, appNameStyles  } = styles;
+  forgotPassword() {
+    return Alert.alert('user forgot password');
+  }
+  signUpButton() {
+    return Alert.alert('user submitted form');
+  }
+  registerForm() {
+    return Alert.alert('user wants to register');
+  }
 
   render() {
     return (
       <View style={styles.formContainerStyles}>
-        <Text>Register</Text>
-        <View>
+        <TouchableOpacity onPress={this.registerForm} style={styles.registerStyles}>
+          <Text>Register</Text>
+        </TouchableOpacity>
+        
+        <View style={styles.formStyles}>
           <Text style={styles.appNameStyles}>App Name</Text>
-          <TextInput placeholder="email@example.com" />
-          <TextInput placeholder="password" />
+          <View>
+            <Input placeholder="email@example.com" label="email" />
+            <Input placeholder="password" label="password" />
+          </View>
+          <Button onPress={this.signUpButton}>SIGN UP</Button>
+          <TouchableOpacity onPress={this.forgotPassword}>
+            <Text>Forgot Password?</Text>
+          </TouchableOpacity>
         </View>
       </View>
     );
@@ -21,17 +41,26 @@ class SignUpForm extends Component {
 const styles = {
   formContainerStyles: {
     flex: 1,
-    justifyContent: 'center',
     alignItems: 'center',
     borderColor: '#000',
-    borderWidth: 1
+    borderWidth: 3,
+    borderRadius: 2
   },
   registerStyles: {
-    alignSelf: 'start'
+    alignSelf: 'flex-start',
+    paddingTop: 15,
+    paddingLeft: 10
+  },
+  formStyles: {
+    paddingTop: 70
   },
   appNameStyles: {
     fontSize: 32,
-    fontWeight: 'bold'
+    marginBottom: 30
+  },
+  loginDetailsStyles: {
+    flex: 1,
+    alignSelf: 'center'
   }
 };
 
